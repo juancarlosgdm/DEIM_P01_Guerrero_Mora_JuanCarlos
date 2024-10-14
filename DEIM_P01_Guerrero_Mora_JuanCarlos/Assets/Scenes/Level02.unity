@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalLock
       objectReference: {fileID: 0}
+    - target: {fileID: 3923952609785435746, guid: 80c0104a6f71ae1429bc31a6ae180cd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5147882134004728400, guid: 80c0104a6f71ae1429bc31a6ae180cd3, type: 3}
       propertyPath: inventory
       value: 
@@ -203,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &277552240
 Grid:
   m_ObjectHideFlags: 0
@@ -230,6 +234,56 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1259636699}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &504398712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504398714}
+  - component: {fileID: 504398713}
+  m_Layer: 0
+  m_Name: Level Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &504398713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504398712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd69ba38e67c62468a181da50d04fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelPieces:
+  - {fileID: 1596396847712812287, guid: 23600d8aa8b27f34fab896e6ab131490, type: 3}
+  - {fileID: 1596396847712812287, guid: adfbecc301d97154486f881df32e7be7, type: 3}
+  - {fileID: 1596396847712812287, guid: 5b5ac00e05776c24eb728de12461be36, type: 3}
+  pieceHeight: 20
+  levelHeight: 200
+--- !u!4 &504398714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504398712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -338,7 +392,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1763,6 +1817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4893636597164577408, guid: 774eda92a9d99924abbaa271ebc30664, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5653462841301453779, guid: 774eda92a9d99924abbaa271ebc30664, type: 3}
       propertyPath: m_SizeDelta.x
       value: 180
@@ -1828,6 +1886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4193823213574502683, guid: 08fa8fc144d53354a9f2235a286b9212, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1845,3 +1907,4 @@ SceneRoots:
   - {fileID: 8009770810870071407}
   - {fileID: 5961648338101642634}
   - {fileID: 865174978}
+  - {fileID: 504398714}
