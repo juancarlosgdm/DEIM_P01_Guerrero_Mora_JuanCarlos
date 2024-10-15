@@ -23,8 +23,26 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Fuerza de salto del personaje")]
     [SerializeField] private float jumpForce;
 
+    [Tooltip("Tiempo máximo que el jugador puede mantener pulsado la tecla de salto")]
+    [SerializeField] private float maxJumpTime;
+
     [Tooltip("Fuerza de caída del personaje")]
     [SerializeField] private float fallForce;
+
+    /// <summary>
+    /// Tiempo que el personaje lleva saltando
+    /// </summary>
+    private float jumpTime;
+
+    private bool jumping;
+
+    private float airTime;
+
+    public float coyoteTime;
+
+    public LayerMask jumpLayerMask;
+
+    public float groundCheck;
 
     /// <summary>
     /// La función de Start se ejecuta únicamente el primer frame que el objeto esté activo
@@ -61,10 +79,36 @@ public class PlayerController : MonoBehaviour
         }
 
         // Comprueba si el jugador ha pulsado la tecla espacio
-        if (Input.GetKey(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space)) && CanJump())
         {
-            // Salto del personaje
-            rb.AddForce(Vector2.up * jumpForce);
+            // El personaje inicia el salto
+            jumping = true;
+            jumpTime = 0;
+            Debug.Log("inicio de salto");
+        }
+
+        if ((Input.GetKeyUp(KeyCode.Space)) || (jumpTime >= maxJumpTime))
+        {
+            // El personaje finaliza el salto
+            jumping = false;
+            Debug.Log("fin de salto");
+        }
+
+        if (jumping)
+        {
+            //rb.AddForce(Vector2.up * jumpForce);
+            rb.velocity = Vector2.up * jumpForce;
+            jumpTime += Time.deltaTime;
+            airTime = coyoteTime;
+        }
+
+        if (!IsGrounded())
+        {
+            airTime += Time.deltaTime;
+        }
+        else
+        {
+            airTime = 0;
         }
 
         // Gestión de las animaciones de andar del personaje (cualquiera de las dos opciones es válida)
@@ -77,5 +121,19 @@ public class PlayerController : MonoBehaviour
             // Aplica una fuerza extra a la caída
             rb.AddForce(Vector2.down * fallForce);
         }
+    }
+
+    private bool CanJump()
+    {
+        bool res = (!jumping && (IsGrounded() || (airTime < coyoteTime)));
+
+        return res;
+    }
+
+    private bool IsGrounded()
+    {
+        bool res = Physics2D.Raycast(transform.position, Vector2.down, groundCheck, jumpLayerMask);
+
+        return res;
     }
 }

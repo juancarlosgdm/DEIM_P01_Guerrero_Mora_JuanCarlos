@@ -269,6 +269,10 @@ MonoBehaviour:
   - {fileID: 1596396847712812287, guid: 23600d8aa8b27f34fab896e6ab131490, type: 3}
   - {fileID: 1596396847712812287, guid: adfbecc301d97154486f881df32e7be7, type: 3}
   - {fileID: 1596396847712812287, guid: 5b5ac00e05776c24eb728de12461be36, type: 3}
+  startPieces:
+  - {fileID: 1596396847712812287, guid: 3f84f9f3523f8084bb065bfdcd634400, type: 3}
+  endPieces:
+  - {fileID: 1596396847712812287, guid: 85c8957ed163c044792cdc040ec8f0f3, type: 3}
   pieceHeight: 20
   levelHeight: 200
 --- !u!4 &504398714
@@ -439,13 +443,29 @@ PrefabInstance:
       propertyPath: keyIcon
       value: 
       objectReference: {fileID: 2069468764}
+    - target: {fileID: 8618549161097046908, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
+      propertyPath: coyoteTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618549161097046908, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
+      propertyPath: groundCheck
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618549161097046908, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
+      propertyPath: maxJumpTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618549161097046908, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
+      propertyPath: jumpLayerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8860888855730806635, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.05
+      value: -3.74
       objectReference: {fileID: 0}
     - target: {fileID: 8860888855730806635, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 8860888855730806635, guid: 3d60779669921d8448ab9746464ffbec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -657,7 +677,7 @@ GameObject:
   - component: {fileID: 1259636701}
   - component: {fileID: 1259636700}
   - component: {fileID: 1259636702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
