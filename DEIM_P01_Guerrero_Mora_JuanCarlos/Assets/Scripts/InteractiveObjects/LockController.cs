@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+using Gestor = GestionEscenas.SceneManager;
 
 /// <summary>
 /// Controlador del objeto 'Candado'
@@ -33,7 +34,7 @@ public class LockController : MonoBehaviour
             if (inventory.key)
             {
                 // Carga la escena indicada en el inspector
-                SceneManager.LoadScene(sceneToLoad);
+                Gestor.LoadScene(sceneToLoad);
             }
         }
     }

@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    [Tooltip("Referencia a los datos de configuración del personaje")]
+    [SerializeField] private PlayerConfigData playerConfigData;
+
     [Tooltip("Referencia al Rigidbody2D del personaje")]
     [SerializeField] private Rigidbody2D rb;
 
@@ -16,9 +19,6 @@ public class PlayerController : MonoBehaviour
 
     [Tooltip("Referencia al SpriteRenderer del personaje")]
     [SerializeField] private SpriteRenderer spriteRenderer;
-
-    [Tooltip("Velocidad (fuerza) de movimiento del personaje")]
-    [SerializeField] private float speed;
 
     [Tooltip("Fuerza de salto del personaje")]
     [SerializeField] private float jumpForce;
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     public float groundCheck;
 
+    public ParticleSystem ps;
+
     /// <summary>
     /// La función de Start se ejecuta únicamente el primer frame que el objeto esté activo
     /// </summary>
@@ -51,6 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         // Muestra un mensaje por consola
         Debug.Log("se ejecuta Start");
+
+        playerConfigData.MovementSpeed = 6;
+
+        animator.runtimeAnimatorController = playerConfigData.animatorController;
     }
 
     /// <summary>
@@ -62,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             // Movimiento del personaje hacia la derecha
-            rb.AddForce(Vector2.right * speed);
+            rb.AddForce(Vector2.right * playerConfigData.MovementSpeed);
 
             // Ajusta la orientación del sprite del personaje hacia la derecha
             spriteRenderer.flipX = true;
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             // Movimiento del personaje hacia la izquierda
-            rb.AddForce(Vector2.left * speed);
+            rb.AddForce(Vector2.left * playerConfigData.MovementSpeed);
 
             // Ajusta la orientación del sprite del personaje hacia la izquierda
             spriteRenderer.flipX = false;
@@ -120,6 +126,15 @@ public class PlayerController : MonoBehaviour
         {
             // Aplica una fuerza extra a la caída
             rb.AddForce(Vector2.down * fallForce);
+        }
+    }
+
+    public void PlayFootStep()
+    {
+        // Efecto de sonido para los pasos del personaje
+        if (IsGrounded())
+        {
+            AudioManager.PlayFootstepSound();
         }
     }
 

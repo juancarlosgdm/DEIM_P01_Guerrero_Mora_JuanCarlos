@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789a6ba32be61bd4fbb547b2f758634c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalEnemies: 0
+  enemies: []
 --- !u!1 &4978233092278032677
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +72,7 @@ GameObject:
   - component: {fileID: 3583862220479021584}
   - component: {fileID: 3853385823938307636}
   - component: {fileID: 8092199126680731872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -58,6 +58,8 @@ public class LevelGenerator : MonoBehaviour
         }
 
         Instantiate(endPieces[Random.Range(0, endPieces.Length)], new Vector3(0, -levelHeight, 0), Quaternion.identity, transform);
+
+
     }
 
     /// <summary>
